@@ -3,7 +3,7 @@ $(function() {
   var canvas=document.getElementById("circleCanvas"),
       context = canvas.getContext('2d');
   var placedCircles = [];
-  
+  var textValue = null;
   window.addEventListener('resize', resizeCanvas, false);
   window.addEventListener('click', drawCircles, true);
   function resizeCanvas() {
@@ -19,11 +19,8 @@ $(function() {
     posy = pos.y
     context.beginPath()
     context.arc(posx, posy, 30, 0 , 2*Math.PI);
-    context.fillStyle = "#000000";
-    context.fill();
     context.stroke();
     placedCircles.push({x: posx,y: posy});
-    console.log(placedCircles);
   }
 
   function getMousePosition(event) {
@@ -39,9 +36,14 @@ $(function() {
       posy = coords.y
       context.beginPath()
       context.arc(posx, posy, 30, 0, 2*Math.PI);
-      context.fillStyle="#000000";
-      context.fill();
       context.stroke();
     })
   }
+
+
+  $('input[type=textarea]').bind('input propertychange', function() {
+    textValue = this.value;
+    console.log(textValue);
+  });
 });
+

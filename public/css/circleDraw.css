@@ -1,10 +1,17 @@
-html, body { width=100%; height=100%; }
+body { width=100%;
+       height=100%;
+     }
 
-.circleCanvas {
+#circleCanvas {
   display: block;
+  position: relative;
+  z-index: -1;
+}
+
+#text{
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  left: 10px;
+  top: 10px;
+  float: left;
+  z-index: 1;
 }
