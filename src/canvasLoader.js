@@ -7,26 +7,29 @@ $(function() {
   var textValue = "";
   var letter = null;
   var counter = 0;
+
   window.addEventListener('resize', resizeCanvas, false);
-  window.addEventListener('click', drawCircles, true);
-  window.addEventListener('click', firstLetter, true);
-  window.addEventListener('click', restOfString, true);
-  window.addEventListener('click', textInCircle, true);
+  canvas.addEventListener('click', drawCircles, true);
+
   function resizeCanvas() {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = window.innerHeight - 100;
     reDrawCircles();
   }
   resizeCanvas();
-
+  
   function drawCircles(e){
+    firstLetter();
+    restOfString();
     var pos = getMousePosition(event)
     posx = pos.x
-    posy = pos.y
+    posy = pos.y - 100
     context.beginPath()
     context.arc(posx, posy, 30, 0 , 2*Math.PI);
     context.stroke();
-    placedCircles.push({x: posx,y: posy, letter: ""});
+    context.font = "18px Arial";
+    context.fillText(letter, posx, posy)
+    placedCircles.push({x: posx,y: posy, letter: letter});
   }
 
   function getMousePosition(event) {
@@ -51,28 +54,30 @@ $(function() {
 
   $('input[type=textarea]').bind('input propertychange', function() {
     textValue = this.value;
-    console.log(textValue);
   });
 
   function firstLetter() {
     letter = textValue.charAt(0);
-    console.log(letter);
   };
 
   function restOfString() {
     rest = textValue.slice(1)
     $('input[type=textarea]').val(rest)
     textValue=rest
-    console.log(rest)
   }
 
   function textInCircle() {
+    firstLetter();
+    restOfString();
     placedCircles[counter].letter = letter
     posx = placedCircles[counter].x
     posy = placedCircles[counter].y
     context.font = "16px Arial";
     context.fillText(letter, posx, posy)
-      console.log(counter);
+    if (textValue != "") {
     counter = counter + 1
+    } else {
+      counter
+    }
   }
 });
