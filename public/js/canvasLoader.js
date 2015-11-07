@@ -11,6 +11,13 @@ $(function() {
   window.addEventListener("resize", resizeCanvas, false);
   canvas.addEventListener("click", drawCircles, true);
 
+  function getMousePosition(event) {
+    return {
+      x: event.clientX,
+      y: event.clientY 
+    };
+  };
+
   function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight - 100;
@@ -43,13 +50,6 @@ $(function() {
     placedCircles.push({x: posx,y: posy, letter: letter});
     circle();
     letterFill();
-  };
-
-  function getMousePosition(event) {
-    return {
-      x: event.clientX,
-      y: event.clientY 
-    };
   };
 
   function reDrawCircles() {
