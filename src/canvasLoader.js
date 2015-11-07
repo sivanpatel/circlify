@@ -66,18 +66,4 @@ $(function() {
     textValue=rest
   }
 
-  function textInCircle() {
-    firstLetter();
-    restOfString();
-    placedCircles[counter].letter = letter
-    posx = placedCircles[counter].x
-    posy = placedCircles[counter].y
-    context.font = "16px Arial";
-    context.fillText(letter, posx, posy)
-    if (textValue != "") {
-    counter = counter + 1
-    } else {
-      counter
-    }
-  }
 });

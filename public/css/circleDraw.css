@@ -13,5 +13,6 @@ body { width=100%;
   position: absolute;
   left: 10px;
   top: 10px;
-  float: left;
+  right: 10px;
+  width: 100%;
 }
