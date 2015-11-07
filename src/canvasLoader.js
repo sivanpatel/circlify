@@ -25,9 +25,13 @@ $(function() {
     posx = pos.x
     posy = pos.y - 100
     context.beginPath()
-    context.arc(posx, posy, 30, 0 , 2*Math.PI);
+    context.arc(posx, posy, 30, 0 , 2*Math.PI, false);
+    context.fillStyle = '#A44A3F';
+    context.fill();
     context.stroke();
     context.font = "18px Arial";
+    context.fillStyle = "black";
+    context.textAlign = 'center';
     context.fillText(letter, posx, posy)
     placedCircles.push({x: posx,y: posy, letter: letter});
   }
@@ -46,8 +50,12 @@ $(function() {
       letter = coords.letter
       context.beginPath()
       context.arc(posx, posy, 30, 0, 2*Math.PI);
+      context.fillStyle = '#A44A3F';
+      context.fill();
       context.stroke();
-      context.font = "16px Arial";
+      context.font = "18px Arial";
+      context.fillStyle = "black";
+      context.textAlign = 'center';
       context.fillText(letter, posx, posy);
     })
   }
