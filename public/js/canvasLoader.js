@@ -1,7 +1,7 @@
 $(function() {
 
-  var canvas=document.getElementById("circleCanvas"),
-      context = canvas.getContext("2d");
+  var canvas=document.getElementById("circleCanvas");
+  var context = canvas.getContext("2d");
   var placedCircles = [];
   var rest = null;
   var textValue = "";
