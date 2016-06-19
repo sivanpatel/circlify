@@ -6,7 +6,6 @@ $(function() {
   var rest = null;
   var textValue = "";
   var letter = null;
-  var counter = 0;
 
   window.addEventListener("resize", resizeCanvas, false);
   canvas.addEventListener("click", drawCircles, true);
@@ -25,7 +24,7 @@ $(function() {
   };
 
   resizeCanvas();
-  
+
   function circle() {
     context.beginPath();
     context.arc(posx, posy, 30, 0 , 2*Math.PI, false);

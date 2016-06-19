@@ -23,5 +23,7 @@ Approach:
   - Inside of the function created for drawing circles, I added another part to draw letters at the same coordinate
   - At this point, it was working as I expected, so I decided to push it to heroku so that I can make sure it works live
   - I restructured the file system slightly, and using Sinatra I pushed it up to heroku (http://circlify.herokuapp.com/)
+  - I introduced some CSS. just to try and make it look slightly nicer
+  - I finished up refactoring by extracting some repeated lines in to separate functions which are then called as necessary
    
 
